@@ -4,6 +4,9 @@ import {LoginComponent} from "./login/login.component";
 import {MainComponent} from "./main/main.component";
 import * as path from "path";
 import {HomeComponent} from "./main/home/home.component";
+import {PagesComponent} from "./admin/pages/pages.component";
+import {AdminComponent} from "./admin/admin.component";
+import {AssetsComponent} from "./admin/assets/assets.component";
 
 const routes: Routes = [
   {
@@ -27,6 +30,25 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      }
+    ]
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'pages',
+        pathMatch: 'full'
+      },
+      {
+        path: 'pages',
+        component: PagesComponent
+      },
+      {
+        path: 'assets',
+        component: AssetsComponent
       }
     ]
   }
